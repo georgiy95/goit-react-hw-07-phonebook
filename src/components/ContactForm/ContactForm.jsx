@@ -1,10 +1,10 @@
-import styles from './phoneBook.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { createContact } from 'components/redux/operations';
+import { createContact } from 'redux/operations';
 import { nanoid } from '@reduxjs/toolkit';
-import { getContacts } from 'components/redux/selectos';
+import { getContacts } from 'redux/selectos';
+import css from './ContactForm.module.css';
 
-export const PhoneBook = () => {
+export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 
@@ -30,10 +30,11 @@ export const PhoneBook = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <label>
         Name
         <input
+        className={css.input}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -45,6 +46,7 @@ export const PhoneBook = () => {
       <label>
         Number
         <input
+        className={css.input}
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
@@ -53,7 +55,7 @@ export const PhoneBook = () => {
         />
       </label>
 
-      <button type="submit">Add contact</button>
+      <button className={css.btn} type="submit">Add contact</button>
     </form>
   );
 };

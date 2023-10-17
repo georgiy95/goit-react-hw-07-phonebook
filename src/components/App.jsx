@@ -1,19 +1,18 @@
 import { Section } from './Section/Section';
-import { PhoneBook } from './PhoneBook/PhoneBook';
-import { Contacts } from './Contacts/Contacts';
-import { Filter } from './Filter/Filter';
+import { ContactForm } from './ContactForm/ContactForm';
+import { ContactsList  } from './ContactsList/ContactsList';
+import { Input } from './Input/Input';
 
 const App = () => {
   return (
     <div className="app">
       <Section title="Phonebook">
-        <PhoneBook />
+        <ContactForm />
       </Section>
 
-      <Section title="Contacts">
-        <Contacts>
-          <Filter />
-        </Contacts>
+      <Section title="Contacts"> 
+      <Input />
+        <ContactsList />
       </Section>
     </div>
   );

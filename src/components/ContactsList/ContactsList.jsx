@@ -1,10 +1,10 @@
-import styles from './Contacts.module.css';
+import css from './ContactsList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts, getFilter } from 'components/redux/selectos';
-import { fetchContacts, deleteContact } from 'components/redux/operations';
+import { getContacts, getFilter } from 'redux/selectos';
+import { fetchContacts, deleteContact } from 'redux/operations';
 import { useEffect } from 'react';
 
-export const Contacts = ({ children }) => {
+export const ContactsList = ({ children }) => {
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);
   const contacts = useSelector(getContacts);
@@ -30,17 +30,17 @@ export const Contacts = ({ children }) => {
   return (
     <>
       {children}
-      <ul className={styles.list}>
+      <ul className={css.list}>
         {visibleContacts.map(({ name, number, id }) => {
           return (
             <li
-              className={styles.item}
+              className={css.item}
               key={id}
               id={id}
               onClick={handlDeleteContact}
             >
               {name}: {number}
-              <button type="button">Delete</button>
+              <button className={css.btn} type="button">Delete</button>
             </li>
           );
         })}
