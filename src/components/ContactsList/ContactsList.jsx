@@ -8,20 +8,19 @@ export const ContactsList = ({ children }) => {
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);
   const contacts = useSelector(getContacts);
-  const normalizeFilter = filter.toLocaleLowerCase();
-  const visibleContacts = getVisibleContacts(contacts);
+  const normalizedFilter = filter.toLocaleLowerCase();
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  function getVisibleContacts(contacts) {
-    return contacts?.length > 0
-      ? contacts.filter(contact => {
-          return contact.name.toLocaleLowerCase().includes(normalizeFilter);
-        })
-      : [];
-  }
+  const getVisibleContacts = () => {
+    return contacts.filter(({ name }) =>
+      name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+    const visibleContacts = getVisibleContacts(contacts);
 
   const handlDeleteContact = evt => {
     dispatch(deleteContact(evt.currentTarget.id));
