@@ -1,16 +1,16 @@
 import { useDispatch } from 'react-redux';
 import { change } from 'redux/filter/filterSlice';
-import css from './Input.module.css';
+import style from './Filter.module.css';
 
-export const Input = () => {
+export const Filter = () => {
     const dispatch = useDispatch();
     const changeValue = event => {
         dispatch(change(event.target.value));
     };
     return (
-        <label>
+        <label className={style.filter}>
             <span>Find contacts by name</span>
-            <input className={css.input} type="text" name="filter" onChange={changeValue} />
+            <input type="text" name="filter" onChange={changeValue} />
         </label>
     );
 };
