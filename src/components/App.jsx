@@ -1,15 +1,15 @@
 import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './Filter/Filter';
+import {Input} from './Input/Input';
 import { ContactList } from './ContactList/ContactList';
-import style from './App.module.css';
+
 
 export const App = () => {
   return (
-    <div className={style.main_section}>
+    <div>
       <h1>Phonebook</h1>
       <ContactForm />
       <h2>Contacts</h2>
-      <Filter />
+      <Input />
       <ContactList />
     </div>
   );

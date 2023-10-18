@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import style from './ContactList.module.css';
+import css from './ContactList.module.css';
 import { deleteContact } from 'redux/contacts/contactsOperations';
 import { getContacts, getIsLoading } from 'redux/contacts/contactsSelector';
 
@@ -20,12 +20,12 @@ export const ContactList = () => {
     <>
       {isLoading && <p>Loading...</p>}
       {contacts && !isLoading && (
-        <ul className={style.list}>
+        <ul className={css.list}>
           {getFilteredPerson().map(({ id, name, phone }) => {
             return (
-              <li key={id} id={id} className={style.list_item}>
+              <li key={id} id={id} className={css.item}>
                 {name}: {phone}
-                <button onClick={() => dispatch(deleteContact(id))}>
+                <button className={css.btn} onClick={() => dispatch(deleteContact(id))}>
                   Delete
                 </button>
               </li>

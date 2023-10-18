@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import * as contactsOperations from 'redux/contacts/contactsOperations';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import style from './ContactForm.module.css';
+import css from './ContactForm.module.css';
 import { addContact } from 'redux/contacts/contactsOperations';
 import { getContacts } from 'redux/contacts/contactsSelector';
 
@@ -35,10 +35,11 @@ export const ContactForm = () => {
   }, [dispatch]);
 
   return (
-    <form onSubmit={handleSubmit} id="form" className={style.contact_form}>
+    <form onSubmit={handleSubmit} id="form" className={css.form}>
       <label>
         <span>Name</span>
         <input
+          className={css.input}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -49,6 +50,7 @@ export const ContactForm = () => {
       <label>
         <span>Number</span>
         <input
+          className={css.input}
           type="tel"
           name="phone"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -57,7 +59,7 @@ export const ContactForm = () => {
         />
       </label>
 
-      <button className={style.contact_form__submit} type="submit">
+      <button className={css.btn} type="submit">
         Add contact
       </button>
     </form>
