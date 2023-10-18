@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { change } from 'redux/filterSlice';
+import { change } from 'redux/filter/filterSlice';
 import css from './Input.module.css';
 
 export const Input = () => {
