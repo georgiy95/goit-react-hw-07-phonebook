@@ -1,21 +1,16 @@
-import { Section } from './Section/Section';
 import { ContactForm } from './ContactForm/ContactForm';
-import { ContactsList  } from './ContactsList/ContactsList';
-import { Input } from './Input/Input';
+import {Input } from './Input/Input';
+import { ContactList } from './ContactList/ContactList';
 
-const App = () => {
+
+export const App = () => {
   return (
-    <div className="app">
-      <Section title="Phonebook">
-        <ContactForm />
-      </Section>
-
-      <Section title="Contacts"> 
+    <div>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <h2>Contacts</h2>
       <Input />
-        <ContactsList />
-      </Section>
+      <ContactList />
     </div>
   );
 };
-
-export default App;

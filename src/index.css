@@ -21,8 +21,7 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p {
+h6 {
   margin: 0;
   color: #0004ff;
     font-size: 36px;
@@ -39,9 +38,18 @@ h2 {
  
 }
 
+h1 {
+  padding-bottom: 20px;
+ 
+}
+
 ul,
 ol {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.main_section {
+	padding: 20px;
 }
