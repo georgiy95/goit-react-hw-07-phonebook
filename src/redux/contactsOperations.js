@@ -1,4 +1,4 @@
-import * as contactsApi from '../services/contacts-api';
+import * as contactsApi from './contacts-api';
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 

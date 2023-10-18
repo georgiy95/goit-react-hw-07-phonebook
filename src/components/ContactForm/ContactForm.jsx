@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import * as contactsOperations from 'redux/contacts/contactsOperations';
+import * as contactsOperations from 'redux/contactsOperations';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactForm.module.css';
-import { addContact } from 'redux/contacts/contactsOperations';
-import { getContacts } from 'redux/contacts/contactsSelector';
+import { addContact } from 'redux/contactsOperations';
+import { getContacts } from 'redux/contactsSelector';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
