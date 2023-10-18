@@ -39,7 +39,7 @@ export const ContactForm = () => {
       <label>
         <span>Name</span>
         <input
-         className={css.input}
+        className={css.input}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -50,7 +50,7 @@ export const ContactForm = () => {
       <label>
         <span>Number</span>
         <input
-         className={css.input}
+        className={css.input}
           type="tel"
           name="phone"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
