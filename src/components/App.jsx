@@ -1,5 +1,5 @@
 import { ContactForm } from './ContactForm/ContactForm';
-import {Input } from './Input/Input';
+import {Input} from './Input/Input';
 import { ContactList } from './ContactList/ContactList';
 
 
