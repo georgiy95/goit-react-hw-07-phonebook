@@ -1,37 +1,40 @@
+import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './contactsOperations';
-import * as contactsApi from '../services/contacts-api';
-import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchContacts = createAsyncThunk(
-    '/contacts/fetchAll',
-    async (_, { rejectWithValue }) => {
-        try {
-            const contacts = await contactsApi.fetchContacts();
-            return contacts;
-        } catch (error) {
-            return rejectWithValue(error);
-        }
-    }
-);
-export const addContact = createAsyncThunk(
-    '/contacts/addContact',
-    async (contact, { rejectWithValue }) => {
-        try {
-            const addedContact = await contactsApi.addContacts(contact);
-            return addedContact;
-        } catch (error) {
-            return rejectWithValue(error);
-        }
-    }
-);
-export const deleteContact = createAsyncThunk(
-    'contacts/deleteContact',
-    async (id, { rejectWithValue }) => {
-        try {
-            const deletedContact = await contactsApi.deleteContact(id);
-            return deletedContact;
-        } catch (error) {
-            return rejectWithValue(error);
-        }
-    }
-);
+const items = createReducer([], {
+    [fetchContacts.fulfilled]: (_, action) => action.payload,
+    [addContact.fulfilled]: (state, action) => [...state, action.payload],
+    [deleteContact.fulfilled]: (state, action) => {
+        const contacts = [...state];
+        return contacts.filter(contact => {
+            return contact.id !== action.payload.id;
+        });
+    },
+});
+
+const isLoading = createReducer(false, {
+    [fetchContacts.pending]: () => true,
+    [fetchContacts.fulfilled]: () => false,
+    [fetchContacts.rejected]: () => false,
+    [addContact.pending]: () => true,
+    [addContact.fulfilled]: () => false,
+    [addContact.rejected]: () => false,
+    [deleteContact.pending]: () => true,
+    [deleteContact.fulfilled]: () => false,
+    [deleteContact.rejected]: () => false,
+});
+
+const error = createReducer(null, {
+    [fetchContacts.rejected]: (_, action) => action.payload,
+    [fetchContacts.pending]: () => null,
+    [addContact.rejected]: (_, action) => action.payload,
+    [addContact.pending]: () => null,
+    [deleteContact.rejected]: (_, action) => action.payload,
+    [deleteContact.pending]: () => null,
+});
+
+export default combineReducers({
+    items,
+    isLoading,
+    error,
+});
