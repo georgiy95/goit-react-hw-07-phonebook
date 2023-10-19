@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import * as contactsOperations from 'redux/contactsOperations';
+import * as contactsOperations from 'redux/contactsReducer';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactForm.module.css';
-import { addContact } from 'redux/contactsOperations';
+import { addContact } from 'redux/contactsReducer';
 import { getContacts } from 'redux/contactsSelector';
 
 export const ContactForm = () => {
