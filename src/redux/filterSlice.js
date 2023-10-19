@@ -8,7 +8,11 @@ const filterSlice = createSlice({
   reducers: {
     filteringContacts: (state, action) => action.payload,
   },
+  change: (state, action) => {
+    return action.payload;
+},
 });
 
 export const { filteringContacts } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;
+export const { change } = filterSlice.actions;
