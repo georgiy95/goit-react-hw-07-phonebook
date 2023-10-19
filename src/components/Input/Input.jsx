@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { change } from 'redux/filterSlice';
 import css from './Input.module.css';
 
+
 export const Input = () => {
     const dispatch = useDispatch();
     const changeValue = event => {
