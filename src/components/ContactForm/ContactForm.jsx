@@ -6,7 +6,6 @@ import css from './ContactForm.module.css';
 import { addContact } from 'redux/contactsOperations';
 import { getContacts } from 'redux/contactsSelector';
 
-
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
